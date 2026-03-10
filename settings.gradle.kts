@@ -24,4 +24,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Components Factory"
 include(":app")
-include(":wings library")
+include(":wings-library")

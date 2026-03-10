@@ -40,7 +40,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":wings library"))
+    implementation(project(":wings-library"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

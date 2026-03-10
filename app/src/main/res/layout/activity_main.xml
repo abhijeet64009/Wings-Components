@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="20dp"
     tools:context=".MainActivity">
 
     <com.satya.wingslibrary.ProgressButton
@@ -12,5 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:delayTime="1500"
-        app:executeAt="end"/>
+        app:executeAt="end"
+        android:layout_gravity="center"/>
 </LinearLayout>

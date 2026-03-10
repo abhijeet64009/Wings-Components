@@ -40,6 +40,21 @@ android {
     }
 }
 
+publishing {
+    publications {
+        create<MavenPublication>("release") {
+
+            groupId = "com.github.abhijeet64009"
+            artifactId = "wings-library"
+            version = "1.0.6"
+
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
+}
+
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

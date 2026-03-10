@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ProgressButton">
+        <attr name="buttonColor" format="color"/>
+        <attr name="buttonHeight" format="dimension"/>
+
+        <attr name="buttonText" format="string"/>
+        <attr name="buttonTextColor" format="color"/>
+        <attr name="buttonTextSize" format="dimension"/>
+
+        <attr name="delayTime" format="integer"/>
+        <attr name="cornerRadius" format="dimension"/>
+
+        <!-- Progress indicator customization -->
+        <attr name="progressSize" format="dimension"/>
+        <attr name="progressTrackColor" format="color"/>
+        <attr name="progressIndicatorColor" format="color"/>
+        <attr name="progressTrackThickness" format="dimension"/>
+
+        <!-- 0=start | 1=middle | 2=end -->
+        <attr name="executeAt">
+            <enum name="start" value="0"/>
+            <enum name="middle" value="1"/>
+            <enum name="end" value="2"/>
+        </attr>
+    </declare-styleable>
+
+</resources>

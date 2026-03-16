@@ -48,11 +48,9 @@ Add this to your **module level build.gradle**
 
 ```
 dependencies {
-    implementation 'com.github.abhijeet64009:Wings-Components:1.0.1'
+    implementation 'com.github.abhijeet64009:Wings-Components:1.1.01'
 }
 ```
-
-Replace the version with the **latest available tag**.
 
 ---
 
@@ -118,25 +116,31 @@ progressButton.setOnButtonClick { desiredAction() }
 
 # 📸 Component Previews
 
-### Number Picker
-
-![NumberPicker Preview](preview/number_picker.png)
-
 ### Progress Button
 
 ![ProgressButton Preview](preview/progress_button.png)
+
+### Number Picker
+
+![NumberPicker Preview](preview/number_picker.png)
 
 ---
 
 # 🎬 Demo
 
-You can also add demo GIFs to show component behavior.
-
-```
-![NumberPicker Demo](preview/number_picker_demo.gif)
-
-![ProgressButton Demo](preview/progress_button_demo.gif)
-```
+<table>
+<tr>
+<td align="center">
+<b>Progress Button</b><br>
+<img src="preview/progress_button_demo.gif" width="250"/>
+</td>
+    
+<td align="center">
+<b>Number Picker</b><br>
+<img src="preview/number_picker_demo.gif" width="250"/>
+</td>
+</tr>
+</table>
 
 ---
 

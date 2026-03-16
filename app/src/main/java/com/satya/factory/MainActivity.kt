@@ -24,7 +24,12 @@ class MainActivity : AppCompatActivity() {
 
         binding.progressBtn.setOnButtonClick {
             showDefaultToast()
+            showToast(binding.numberPicker.getCount().toString())
         }
+    }
+
+    private fun showToast(p0: String) {
+        Toast.makeText(this, p0, Toast.LENGTH_SHORT).show()
     }
 
     private fun showDefaultToast() {

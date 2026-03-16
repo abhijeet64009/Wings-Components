@@ -46,7 +46,7 @@ class ProgressButton @JvmOverloads constructor(
 
         val textColor = a.getColor(
             R.styleable.ProgressButton_buttonTextColor,
-            ContextCompat.getColor(context, R.color.white)
+            ContextCompat.getColor(context, R.color.hardcore_white)
         )
 
         val textSizePx = a.getDimension(
@@ -204,7 +204,7 @@ class ProgressButton @JvmOverloads constructor(
     }
 
     fun setProgressTrackColor(color: Int) {
-        progress.setTrackColor(color)
+        progress.trackColor = color
     }
 
     fun setProgressSize(sizePx: Int) {

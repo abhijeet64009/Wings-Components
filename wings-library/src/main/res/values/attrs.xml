@@ -26,4 +26,28 @@
         </attr>
     </declare-styleable>
 
+    <declare-styleable name="NumberPicker">
+        <attr name="decreaseButtonTint" format="color"/>
+        <attr name="increaseButtonTint" format="color"/>
+        <attr name="decreaseButtonIconTint" format="color"/>
+        <attr name="increaseButtonIconTint" format="color"/>
+
+        <attr name="buttonSize" format="dimension"/>
+        <attr name="pickerHeight" format="dimension"/>
+        <attr name="pickerWidth" format="dimension"/>
+        <attr name="countTextStyle" format="enum">
+            <enum name="normal" value="0"/>
+            <enum name="bold" value="1"/>
+            <enum name="italic" value="2"/>
+            <enum name="bold_italic" value="3"/>
+        </attr>
+        <attr name="countTextColor" format="color"/>
+        <attr name="countTextSize" format="dimension"/>
+        <attr name="countTextFontFamily" format="reference"/>
+
+        <attr name="count" format="integer"/>
+        <attr name="minCount" format="integer"/>
+        <attr name="maxCount" format="integer"/>
+        <attr name="countJumpInterval" format="integer"/>
+    </declare-styleable>
 </resources>

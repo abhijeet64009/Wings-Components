@@ -26,7 +26,7 @@
                 android:layout_height="24dp"
                 android:visibility="gone"
                 android:indeterminate="true"
-                app:indicatorColor="@color/white"
+                app:indicatorColor="@color/hardcore_white"
                 app:indicatorSize="24dp"
                 app:trackThickness="3dp"/>
         </RelativeLayout>

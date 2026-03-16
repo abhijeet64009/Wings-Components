@@ -7,15 +7,37 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
+    android:gravity="center"
     tools:context=".MainActivity">
 
     <com.satya.wingslibrary.ProgressButton
-        android:id="@+id/progressBtn"
+        android:id="@+id/progressBtnStart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:buttonText="Start"
+        app:delayTime="1500"
+        app:executeAt="start"
+        app:buttonColor="@android:color/holo_red_dark"
+        android:layout_marginBottom="80dp"/>
+
+    <com.satya.wingslibrary.ProgressButton
+        android:id="@+id/progressBtnMiddle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:buttonText="Middle"
+        app:delayTime="1500"
+        app:executeAt="middle"
+        app:buttonColor="@android:color/holo_orange_dark"
+        android:layout_marginBottom="80dp"/>
+
+    <com.satya.wingslibrary.ProgressButton
+        android:id="@+id/progressBtnEnd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:buttonText="end"
         app:delayTime="1500"
         app:executeAt="end"
-        android:layout_gravity="center"
+        app:buttonColor="@android:color/holo_green_dark"
         android:layout_marginBottom="80dp"/>
 
     <com.satya.wingslibrary.NumberPicker

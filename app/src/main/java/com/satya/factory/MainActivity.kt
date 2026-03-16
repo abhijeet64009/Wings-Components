@@ -22,9 +22,16 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.progressBtn.setOnButtonClick {
+        binding.progressBtnStart.setOnButtonClick {
             showDefaultToast()
-            showToast(binding.numberPicker.getCount().toString())
+        }
+
+        binding.progressBtnMiddle.setOnButtonClick {
+            showDefaultToast()
+        }
+
+        binding.progressBtnEnd.setOnButtonClick {
+            showDefaultToast()
         }
     }
 

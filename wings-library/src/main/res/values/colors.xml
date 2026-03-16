@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="hardcore_white">#FFFFFFFF</color>
-    <color name="black_white">#FF000000</color>
+    <color name="black_white">#0c1821</color>
     <color name="teal_700">#FF018786</color>
 </resources>

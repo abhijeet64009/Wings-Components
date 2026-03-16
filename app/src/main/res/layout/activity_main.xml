@@ -15,7 +15,8 @@
         android:layout_height="wrap_content"
         app:delayTime="1500"
         app:executeAt="end"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:layout_marginBottom="80dp"/>
 
     <com.satya.wingslibrary.NumberPicker
         android:id="@+id/numberPicker"

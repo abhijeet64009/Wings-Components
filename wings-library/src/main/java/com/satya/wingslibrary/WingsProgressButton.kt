@@ -2,6 +2,7 @@ package com.satya.wingslibrary
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.widget.RelativeLayout
 import android.widget.TextView
@@ -9,7 +10,7 @@ import androidx.core.content.ContextCompat
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.progressindicator.CircularProgressIndicator
 
-class ProgressButton @JvmOverloads constructor(
+class WingsProgressButton @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null
 ) : RelativeLayout(context, attrs) {
@@ -25,63 +26,76 @@ class ProgressButton @JvmOverloads constructor(
     private var executeAt = ExecuteAt.END
 
     init {
-        LayoutInflater.from(context).inflate(R.layout.view_progress_button, this, true)
+
+        LayoutInflater.from(context)
+            .inflate(R.layout.wings_progress_button, this, true)
 
         card = findViewById(R.id.buttonCard)
         textView = findViewById(R.id.btnTxt)
         progress = findViewById(R.id.progress_circular)
 
-        val a = context.obtainStyledAttributes(attrs, R.styleable.ProgressButton)
+        val a = context.obtainStyledAttributes(attrs, R.styleable.WingsProgressButton)
 
-        val buttonText = a.getString(R.styleable.ProgressButton_buttonText) ?: "Button"
+        val buttonText = a.getString(
+            R.styleable.WingsProgressButton_wpbText
+        ) ?: "Button"
+
         val buttonHeight = a.getDimensionPixelSize(
-            R.styleable.ProgressButton_buttonHeight,
+            R.styleable.WingsProgressButton_wpbHeight,
             dpToPx(48)
         )
 
         val bgColor = a.getColor(
-            R.styleable.ProgressButton_buttonColor,
+            R.styleable.WingsProgressButton_wpbColor,
             ContextCompat.getColor(context, R.color.teal_700)
         )
 
         val textColor = a.getColor(
-            R.styleable.ProgressButton_buttonTextColor,
+            R.styleable.WingsProgressButton_wpbTextColor,
             ContextCompat.getColor(context, R.color.hardcore_white)
         )
 
         val textSizePx = a.getDimension(
-            R.styleable.ProgressButton_buttonTextSize,
+            R.styleable.WingsProgressButton_wpbTextSize,
             spToPx(14f)
         )
 
         val cornerRadius = a.getDimension(
-            R.styleable.ProgressButton_cornerRadius,
+            R.styleable.WingsProgressButton_wpbRadius,
             dpToPx(24).toFloat()
         )
 
         val progressSize = a.getDimensionPixelSize(
-            R.styleable.ProgressButton_progressSize,
+            R.styleable.WingsProgressButton_wpbProgSize,
             dpToPx(28)
         )
 
         val trackThickness = a.getDimensionPixelSize(
-            R.styleable.ProgressButton_progressTrackThickness,
+            R.styleable.WingsProgressButton_wpbProgThickness,
             dpToPx(3)
         )
 
         val indicatorColor = a.getColor(
-            R.styleable.ProgressButton_progressIndicatorColor,
+            R.styleable.WingsProgressButton_wpbProgColor,
             ContextCompat.getColor(context, android.R.color.white)
         )
 
         val trackColor = a.getColor(
-            R.styleable.ProgressButton_progressTrackColor,
+            R.styleable.WingsProgressButton_wpbProgTrackColor,
             ContextCompat.getColor(context, android.R.color.transparent)
         )
 
-        delayTime = a.getInt(R.styleable.ProgressButton_delayTime, 500).toLong()
+        delayTime = a.getInt(
+            R.styleable.WingsProgressButton_wpbDelay,
+            500
+        ).toLong()
 
-        executeAt = when (a.getInt(R.styleable.ProgressButton_executeAt, 2)) {
+        executeAt = when (
+            a.getInt(
+                R.styleable.WingsProgressButton_wpbExecuteAt,
+                2
+            )
+        ) {
             0 -> ExecuteAt.START
             1 -> ExecuteAt.MIDDLE
             else -> ExecuteAt.END
@@ -89,47 +103,60 @@ class ProgressButton @JvmOverloads constructor(
 
         a.recycle()
 
-        // Apply attributes
         textView.text = buttonText
         textView.setTextColor(textColor)
+
         card.setCardBackgroundColor(bgColor)
         card.radius = cornerRadius
 
         progress.apply {
             indicatorSize = progressSize
             this.trackThickness = trackThickness
+
             setIndicatorColor(indicatorColor)
             setTrackColor(trackColor)
+
             isIndeterminate = true
         }
 
-        // IMPORTANT: height fix
         card.layoutParams = card.layoutParams.apply {
             height = buttonHeight
         }
 
+        textView.setTextSize(
+            TypedValue.COMPLEX_UNIT_PX,
+            textSizePx
+        )
+
         card.setOnClickListener {
-            if (progress.visibility == VISIBLE) return@setOnClickListener
+
+            if (progress.visibility == VISIBLE)
+                return@setOnClickListener
+
             showProgress(true)
             performClickAction()
         }
-
-        textView.setTextSize(
-            android.util.TypedValue.COMPLEX_UNIT_PX,
-            textSizePx
-        )
     }
 
     private fun performClickAction() {
         when (executeAt) {
             ExecuteAt.START -> {
                 onClickAction?.invoke()
-                postDelayed({ showProgress(false) }, delayTime)
+
+                postDelayed(
+                    { showProgress(false) },
+                    delayTime
+                )
             }
             ExecuteAt.MIDDLE -> {
                 postDelayed({
                     onClickAction?.invoke()
-                    postDelayed({ showProgress(false) }, delayTime / 2)
+
+                    postDelayed(
+                        { showProgress(false) },
+                        delayTime / 2
+                    )
+
                 }, delayTime / 2)
             }
             ExecuteAt.END -> {
@@ -216,12 +243,13 @@ class ProgressButton @JvmOverloads constructor(
     }
 
     private fun dpToPx(dp: Int): Int {
-        return (dp * resources.displayMetrics.density).toInt()
+        return (dp * resources.displayMetrics.density)
+            .toInt()
     }
 
     private fun spToPx(sp: Float): Float {
-        return android.util.TypedValue.applyDimension(
-            android.util.TypedValue.COMPLEX_UNIT_SP,
+        return TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_SP,
             sp,
             resources.displayMetrics
         )

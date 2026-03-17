@@ -15,7 +15,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 
-class NumberPicker @JvmOverloads constructor(
+class WingsNumberPicker @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null
 ) : LinearLayout(context, attrs) {
@@ -43,65 +43,68 @@ class NumberPicker @JvmOverloads constructor(
 
         orientation = HORIZONTAL
         LayoutInflater.from(context)
-            .inflate(R.layout.view_number_picker, this, true)
+            .inflate(R.layout.wings_number_picker, this, true)
 
         decreaseButton = findViewById(R.id.decreaseBtn)
         increaseButton = findViewById(R.id.increaseBtn)
         countTextView = findViewById(R.id.countTv)
 
-        val a = context.obtainStyledAttributes(attrs, R.styleable.NumberPicker)
+        val a = context.obtainStyledAttributes(attrs, R.styleable.WingsNumberPicker)
 
-        count = a.getInt(R.styleable.NumberPicker_count, 1)
-        minCount = a.getInt(R.styleable.NumberPicker_minCount, 0)
-        maxCount = a.getInt(R.styleable.NumberPicker_maxCount, 10)
+        count = a.getInt(R.styleable.WingsNumberPicker_wnpCount, 1)
+
+        minCount = a.getInt(R.styleable.WingsNumberPicker_wnpMin, 0)
+
+        maxCount = a.getInt(R.styleable.WingsNumberPicker_wnpMax, 10)
+
         countJumpInterval = a.getInt(
-            R.styleable.NumberPicker_countJumpInterval,
+            R.styleable.WingsNumberPicker_wnpStep,
             1
         )
 
         val textColor = a.getColor(
-            R.styleable.NumberPicker_countTextColor,
+            R.styleable.WingsNumberPicker_wnpTextColor,
             ContextCompat.getColor(context, android.R.color.black)
         )
 
         val textSize = a.getDimension(
-            R.styleable.NumberPicker_countTextSize,
+            R.styleable.WingsNumberPicker_wnpTextSize,
             spToPx(16f)
         )
 
         val fontFamily = a.getResourceId(
-            R.styleable.NumberPicker_countTextFontFamily,
+            R.styleable.WingsNumberPicker_wnpTextFont,
             0
         )
 
         val textStyle = a.getInt(
-            R.styleable.NumberPicker_countTextStyle,
+            R.styleable.WingsNumberPicker_wnpTextStyle,
             Typeface.NORMAL
         )
 
         val buttonSize = a.getDimensionPixelSize(
-            R.styleable.NumberPicker_buttonSize,
+            R.styleable.WingsNumberPicker_wnpBtnSize,
             dpToPx(32)
         )
 
         val decreaseTint = a.getColor(
-            R.styleable.NumberPicker_decreaseButtonTint,
+            R.styleable.WingsNumberPicker_wnpDecTint,
             ContextCompat.getColor(context, android.R.color.holo_red_dark)
         )
 
         val increaseTint = a.getColor(
-            R.styleable.NumberPicker_increaseButtonTint,
+            R.styleable.WingsNumberPicker_wnpIncTint,
             ContextCompat.getColor(context, android.R.color.holo_green_dark)
         )
 
         a.recycle()
 
-        decreaseButton.layoutParams.apply {
+        decreaseButton.layoutParams = decreaseButton.layoutParams.apply {
             width = buttonSize
             height = buttonSize
         }
 
-        increaseButton.layoutParams.apply {
+        increaseButton.layoutParams = increaseButton.layoutParams.apply {
             width = buttonSize
             height = buttonSize
         }
@@ -113,7 +116,11 @@ class NumberPicker @JvmOverloads constructor(
             ColorStateList.valueOf(increaseTint)
 
         countTextView.setTextColor(textColor)
-        countTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize)
+
+        countTextView.setTextSize(
+            TypedValue.COMPLEX_UNIT_PX,
+            textSize
+        )
 
         if (fontFamily != 0) {
             val tf = ResourcesCompat.getFont(context, fontFamily)

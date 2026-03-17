@@ -10,44 +10,44 @@
     android:gravity="center"
     tools:context=".MainActivity">
 
-    <com.satya.wingslibrary.ProgressButton
+    <com.satya.wingslibrary.WingsProgressButton
         android:id="@+id/progressBtnStart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:buttonText="Start"
-        app:delayTime="1500"
-        app:executeAt="start"
-        app:buttonColor="@android:color/holo_red_dark"
+        app:wpbText="Start"
+        app:wpbDelay="1500"
+        app:wpbExecuteAt="start"
+        app:wpbColor="@android:color/holo_red_dark"
         android:layout_marginBottom="80dp"/>
 
-    <com.satya.wingslibrary.ProgressButton
+    <com.satya.wingslibrary.WingsProgressButton
         android:id="@+id/progressBtnMiddle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:buttonText="Middle"
-        app:delayTime="1500"
-        app:executeAt="middle"
-        app:buttonColor="@android:color/holo_orange_dark"
+        app:wpbText="Middle"
+        app:wpbDelay="1500"
+        app:wpbExecuteAt="middle"
+        app:wpbColor="@android:color/holo_orange_dark"
         android:layout_marginBottom="80dp"/>
 
-    <com.satya.wingslibrary.ProgressButton
+    <com.satya.wingslibrary.WingsProgressButton
         android:id="@+id/progressBtnEnd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:buttonText="end"
-        app:delayTime="1500"
-        app:executeAt="end"
-        app:buttonColor="@android:color/holo_green_dark"
+        app:wpbText="end"
+        app:wpbDelay="1500"
+        app:wpbExecuteAt="end"
+        app:wpbColor="@android:color/holo_green_dark"
         android:layout_marginBottom="80dp"/>
 
-    <com.satya.wingslibrary.NumberPicker
+    <com.satya.wingslibrary.WingsNumberPicker
         android:id="@+id/numberPicker"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:countTextSize="20sp"
-        app:buttonSize="48dp"
-        app:count="1"
-        app:minCount="0"
-        app:maxCount="10"
-        app:countJumpInterval="1"/>
+        app:wnpTextSize="20sp"
+        app:wnpBtnSize="48dp"
+        app:wnpCount="1"
+        app:wnpMin="0"
+        app:wnpMax="10"
+        app:wnpStep="1"/>
 </LinearLayout>

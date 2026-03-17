@@ -1,53 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <declare-styleable name="ProgressButton">
-        <attr name="buttonColor" format="color"/>
-        <attr name="buttonHeight" format="dimension"/>
+    <!-- Wings Progress Button -->
+    <declare-styleable name="WingsProgressButton">
 
-        <attr name="buttonText" format="string"/>
-        <attr name="buttonTextColor" format="color"/>
-        <attr name="buttonTextSize" format="dimension"/>
+        <attr name="wpbColor" format="color"/>
+        <attr name="wpbHeight" format="dimension"/>
 
-        <attr name="delayTime" format="integer"/>
-        <attr name="cornerRadius" format="dimension"/>
+        <attr name="wpbText" format="string"/>
+        <attr name="wpbTextColor" format="color"/>
+        <attr name="wpbTextSize" format="dimension"/>
 
-        <!-- Progress indicator customization -->
-        <attr name="progressSize" format="dimension"/>
-        <attr name="progressTrackColor" format="color"/>
-        <attr name="progressIndicatorColor" format="color"/>
-        <attr name="progressTrackThickness" format="dimension"/>
+        <attr name="wpbDelay" format="integer"/>
+        <attr name="wpbRadius" format="dimension"/>
+
+        <!-- Progress indicator -->
+        <attr name="wpbProgSize" format="dimension"/>
+        <attr name="wpbProgTrackColor" format="color"/>
+        <attr name="wpbProgColor" format="color"/>
+        <attr name="wpbProgThickness" format="dimension"/>
 
         <!-- 0=start | 1=middle | 2=end -->
-        <attr name="executeAt">
+        <attr name="wpbExecuteAt">
             <enum name="start" value="0"/>
             <enum name="middle" value="1"/>
             <enum name="end" value="2"/>
         </attr>
+
     </declare-styleable>
 
-    <declare-styleable name="NumberPicker">
-        <attr name="decreaseButtonTint" format="color"/>
-        <attr name="increaseButtonTint" format="color"/>
-        <attr name="decreaseButtonIconTint" format="color"/>
-        <attr name="increaseButtonIconTint" format="color"/>
 
-        <attr name="buttonSize" format="dimension"/>
-        <attr name="pickerHeight" format="dimension"/>
-        <attr name="pickerWidth" format="dimension"/>
-        <attr name="countTextStyle" format="enum">
+    <!-- Wings Number Picker -->
+    <declare-styleable name="WingsNumberPicker">
+
+        <attr name="wnpDecTint" format="color"/>
+        <attr name="wnpIncTint" format="color"/>
+
+        <attr name="wnpDecIconTint" format="color"/>
+        <attr name="wnpIncIconTint" format="color"/>
+
+        <attr name="wnpBtnSize" format="dimension"/>
+
+        <attr name="wnpTextColor" format="color"/>
+        <attr name="wnpTextSize" format="dimension"/>
+        <attr name="wnpTextFont" format="reference"/>
+
+        <attr name="wnpTextStyle">
             <enum name="normal" value="0"/>
             <enum name="bold" value="1"/>
             <enum name="italic" value="2"/>
             <enum name="bold_italic" value="3"/>
         </attr>
-        <attr name="countTextColor" format="color"/>
-        <attr name="countTextSize" format="dimension"/>
-        <attr name="countTextFontFamily" format="reference"/>
 
-        <attr name="count" format="integer"/>
-        <attr name="minCount" format="integer"/>
-        <attr name="maxCount" format="integer"/>
-        <attr name="countJumpInterval" format="integer"/>
+        <attr name="wnpCount" format="integer"/>
+        <attr name="wnpMin" format="integer"/>
+        <attr name="wnpMax" format="integer"/>
+        <attr name="wnpStep" format="integer"/>
+
     </declare-styleable>
+
 </resources>

@@ -70,19 +70,24 @@ dependencies {
 ### XML
 
 ```
-<com.satya.wingslibrary.NumberPicker
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    app:count="1"
-    app:minCount="0"
-    app:maxCount="10"
-    app:countJumpInterval="1"/>
+<com.satya.wingslibrary.WingsNumberPicker
+   android:layout_width="match_parent"
+   android:layout_height="wrap_content"
+   app:wnpMin="0"
+   app:wnpMax="10"
+   app:wnpCount="1"
+   app:wnpBtnSize="24dp"
+   app:wnpTextSize="12sp"
+   app:wnpDecTint="@color/red_600"
+   app:wnpIncTint="@color/green_800"
+   app:wnpDecIconTint="@color/white"
+   app:wnpIncIconTint="@color/white"/>
 ```
 
 ### Kotlin
 
 ```
-val numberPicker = NumberPicker(context)
+val numberPicker = WingsNumberPicker(context)
 ```
 
 ---
@@ -92,23 +97,26 @@ val numberPicker = NumberPicker(context)
 ### XML
 
 ```
-<com.satya.wingslibrary.ProgressButton
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    app:delayTime="1500"
-    app:buttonText="Submit"
-    app:buttonTextColor="@color/black"
-    app:buttonColor="@color/teal_700"/>
+<com.satya.wingslibrary.WingsProgressButton
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   app:wpbColor="@android:color/holo_blue_dark"
+   app:wpbText="Proceed"
+   app:wpbDelay="1500"
+   app:wpbExecuteAt="middle"
+   app:wpbTextColor="@color/white"
+   app:wpbRadius="24dp"
+   app:wpbTextSize="16sp"/>
 ```
 
 ### Kotlin
 
 ```
-val progressButton = ProgressButton(context)
+val progressButton = WingsProgressButton(context)
 
 progressButton.initiateClick()
-progressButton.setDelay(500)
-progressButton.executeAt(end)  // start, middle, end
+progressButton.setDelayTime(500)  // Desired delay in ms
+progressButton.setExecuteAt(end)  // start, middle, end for setOnButtonClick
 progressButton.setOnButtonClick { desiredAction() }
 ```
 

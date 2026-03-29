@@ -10,6 +10,14 @@
         <attr name="wpbText" format="string"/>
         <attr name="wpbTextColor" format="color"/>
         <attr name="wpbTextSize" format="dimension"/>
+        <attr name="wpbTextFont" format="reference"/>
+
+        <attr name="wpbTextStyle">
+            <enum name="normal" value="0"/>
+            <enum name="bold" value="1"/>
+            <enum name="italic" value="2"/>
+            <enum name="bold_italic" value="3"/>
+        </attr>
 
         <attr name="wpbDelay" format="integer"/>
         <attr name="wpbRadius" format="dimension"/>
@@ -59,4 +67,134 @@
 
     </declare-styleable>
 
+    <declare-styleable name="WingsExpandableFab">
+        <!--
+         Layout mode.
+           linear   (0)  items stack vertically above/below the FAB.
+           circular (1)  items orbit the FAB on an arc; arc auto-detected from screen position.
+           radial   (2)  items fan out horizontally beside the FAB (Image A style).
+        -->
+        <attr name="efab_layoutMode">
+            <enum name="linear"   value="0" />
+            <enum name="circular" value="1" />
+            <enum name="radial"   value="2" />
+        </attr>
+
+        <!--
+         Expand direction.
+           up    (0)  LINEAR only: items above FAB.
+           down  (1)  LINEAR only: items below FAB.
+           left  (2)  RADIAL only: FAB on right, children fan left.
+           right (3)  RADIAL only: FAB on left,  children fan right.
+         CIRCULAR ignores this attribute.
+        -->
+        <attr name="efab_expandDirection">
+            <enum name="up"    value="0" />
+            <enum name="down"  value="1" />
+            <enum name="left"  value="2" />
+            <enum name="right" value="3" />
+        </attr>
+
+        <attr name="efab_animationType">
+            <enum name="slide"  value="0" />
+            <enum name="scale"  value="1" />
+            <enum name="fade"   value="2" />
+            <enum name="fan"    value="3" />
+            <enum name="flip"   value="4" />
+            <enum name="spiral" value="5" />
+            <enum name="bounce" value="6" />
+        </attr>
+
+        <attr name="efab_animationSpeed">
+            <enum name="slow"   value="0" />
+            <enum name="normal" value="1" />
+            <enum name="fast"   value="2" />
+        </attr>
+
+        <attr name="efab_mainFabSize">
+            <enum name="mini"   value="0" />
+            <enum name="normal" value="1" />
+            <enum name="large"  value="2" />
+        </attr>
+
+        <!-- Custom icon. null = default Add that rotates to X on expand. -->
+        <attr name="efab_mainIcon"     format="reference" />
+        <attr name="efab_mainFabColor" format="color" />
+        <attr name="efab_mainIconTint" format="color" />
+
+        <!-- Gap between stacked items in LINEAR mode (dp). -->
+        <attr name="efab_itemSpacing"  format="dimension" />
+
+        <!-- Orbit radius in CIRCULAR mode (dp, default 100dp). -->
+        <attr name="efab_circularRadius" format="dimension" />
+
+        <!--
+         Orbit radius in RADIAL mode (dp, default 72dp).
+         Kept separate from circularRadius so you can tune each mode independently.
+        -->
+        <attr name="efab_radialRadius" format="dimension" />
+
+        <!--
+         Auto-detect arc angles from screen position for CIRCULAR mode (default true).
+           true  corner → quarter-arc, edge → half-arc, center → 360°
+           false use efab_circularStartAngle / efab_circularSweepAngle
+        -->
+        <attr name="efab_autoDetectPosition" format="boolean" />
+        <attr name="efab_circularStartAngle" format="float" />
+        <attr name="efab_circularSweepAngle" format="float" />
+
+        <attr name="efab_showScrim"       format="boolean" />
+        <attr name="efab_scrimColor"      format="color"   />
+        <attr name="efab_closeOnScrimTap" format="boolean" />
+
+    </declare-styleable>
+
+    <declare-styleable name="WingsChildFab">
+
+        <attr name="efab_icon"  format="reference" />
+        <attr name="efab_label" format="string" />
+
+        <attr name="childFabSize">
+            <enum name="mini"   value="0" />
+            <enum name="normal" value="1" />
+            <enum name="large"  value="2" />
+        </attr>
+
+        <!--
+         Label chip position.
+           auto   (0)  resolved by parent (mode + screen half).
+           left   (1)  [chip] [fab]
+           right  (2)  [fab] [chip]
+           top    (3)  chip above fab
+           bottom (4)  chip below fab
+           hidden (5)  no chip
+         In CIRCULAR mode labels are always hidden.
+         In RADIAL   mode labels show horizontally (counter-rotated to stay flat).
+        -->
+        <attr name="efab_labelPosition">
+            <enum name="auto"   value="0" />
+            <enum name="left"   value="1" />
+            <enum name="right"  value="2" />
+            <enum name="top"    value="3" />
+            <enum name="bottom" value="4" />
+            <enum name="hidden" value="5" />
+        </attr>
+
+        <!--
+         Mini-FAB background color.
+         Default: white (light mode) / #1E1E1E (night mode).
+        -->
+        <attr name="efab_itemColor"       format="color"     />
+
+        <!--
+         Mini-FAB icon tint.
+         Default: black (light mode) / white (night mode).
+        -->
+        <attr name="efab_iconTint"        format="color"     />
+
+        <attr name="efab_labelTextColor"  format="color"     />
+        <attr name="efab_labelBackground" format="color"     />
+        <attr name="efab_labelTextSize"   format="dimension" />
+        <attr name="efab_visible"         format="boolean"   />
+    </declare-styleable>
 </resources>

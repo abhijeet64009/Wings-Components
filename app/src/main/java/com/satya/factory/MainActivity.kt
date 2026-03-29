@@ -33,6 +33,18 @@ class MainActivity : AppCompatActivity() {
         binding.progressBtnEnd.setOnButtonClick {
             showDefaultToast()
         }
+
+        binding.btnSearch.setOnClickListener {
+            showToast("Search button clicked!")
+        }
+
+        binding.btnSave.setOnClickListener {
+            showToast("Save button clicked!")
+        }
+
+        binding.btnMore.setOnClickListener {
+            showToast("More btn clicked!")
+        }
     }
 
     private fun showToast(p0: String) {

@@ -1,12 +1,14 @@
 package com.satya.wingslibrary
 
 import android.content.Context
+import android.graphics.Typeface
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.progressindicator.CircularProgressIndicator
 
@@ -53,6 +55,16 @@ class WingsProgressButton @JvmOverloads constructor(
         val textColor = a.getColor(
             R.styleable.WingsProgressButton_wpbTextColor,
             ContextCompat.getColor(context, R.color.hardcore_white)
+        )
+
+        val textStyle = a.getInt(
+            R.styleable.WingsProgressButton_wpbTextStyle,
+            Typeface.NORMAL
+        )
+
+        val fontFamily = a.getResourceId(
+            R.styleable.WingsProgressButton_wpbTextFont,
+            0
         )
 
         val textSizePx = a.getDimension(
@@ -105,6 +117,13 @@ class WingsProgressButton @JvmOverloads constructor(
 
         textView.text = buttonText
         textView.setTextColor(textColor)
+
+        if (fontFamily != 0) {
+            val tf = ResourcesCompat.getFont(context, fontFamily)
+            textView.typeface = Typeface.create(tf, textStyle)
+        } else {
+            textView.setTypeface(null, textStyle)
+        }
 
         card.setCardBackgroundColor(bgColor)
         card.radius = cornerRadius

@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
-    android:gravity="center"
     tools:context=".MainActivity">
 
     <com.satya.wingslibrary.WingsProgressButton
@@ -18,7 +17,8 @@
         app:wpbDelay="1500"
         app:wpbExecuteAt="start"
         app:wpbColor="@android:color/holo_red_dark"
-        android:layout_marginBottom="80dp"/>
+        android:layout_marginBottom="80dp"
+        android:visibility="gone"/>
 
     <com.satya.wingslibrary.WingsProgressButton
         android:id="@+id/progressBtnMiddle"
@@ -28,7 +28,8 @@
         app:wpbDelay="1500"
         app:wpbExecuteAt="middle"
         app:wpbColor="@android:color/holo_orange_dark"
-        android:layout_marginBottom="80dp"/>
+        android:layout_marginBottom="80dp"
+        android:visibility="gone"/>
 
     <com.satya.wingslibrary.WingsProgressButton
         android:id="@+id/progressBtnEnd"
@@ -38,7 +39,8 @@
         app:wpbDelay="1500"
         app:wpbExecuteAt="end"
         app:wpbColor="@android:color/holo_green_dark"
-        android:layout_marginBottom="80dp"/>
+        android:layout_marginBottom="80dp"
+        android:visibility="gone"/>
 
     <com.satya.wingslibrary.WingsNumberPicker
         android:id="@+id/numberPicker"
@@ -49,5 +51,52 @@
         app:wnpCount="1"
         app:wnpMin="0"
         app:wnpMax="10"
-        app:wnpStep="1"/>
+        app:wnpStep="1"
+        android:visibility="gone"/>
+
+    <com.satya.wingslibrary.WingsExpandableFab
+        android:id="@+id/expandableFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:backgroundTint="@android:color/transparent"
+        android:layout_margin="16dp"
+        app:efab_layoutMode="linear"
+        app:efab_expandDirection="up"
+        app:efab_animationType="scale"
+        app:efab_animationSpeed="normal"
+        app:efab_closeOnScrimTap="true"
+        app:efab_mainIcon="@drawable/baseline_save_24"
+        app:efab_mainFabColor="@android:color/holo_blue_dark"
+        app:efab_mainIconTint="@android:color/white">
+
+        <com.satya.wingslibrary.ExpandableFabItem
+            android:id="@+id/btnSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:efab_itemColor="@android:color/holo_purple"
+            app:efab_labelBackground="@android:color/holo_purple"
+            app:efab_icon="@drawable/baseline_search_24"
+            app:efab_iconTint="@color/black_white"
+            app:efab_label="Search"
+            app:efab_visible="true"/>
+
+        <com.satya.wingslibrary.ExpandableFabItem
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:efab_icon="@drawable/baseline_add_24"
+            app:efab_iconTint="@color/black_white"
+            app:efab_label="Add"
+            app:efab_visible="true"/>
+
+        <com.satya.wingslibrary.ExpandableFabItem
+            android:id="@+id/btnMore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:efab_icon="@drawable/baseline_more_horiz_24"
+            app:efab_iconTint="@color/black_white"
+            app:efab_label="More"
+            app:efab_visible="true"/>
+    </com.satya.wingslibrary.WingsExpandableFab>
 </LinearLayout>
